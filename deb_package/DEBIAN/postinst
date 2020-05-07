@@ -1,0 +1,24 @@
+#!/bin/sh
+set -e
+
+# Automatically added by dhpython:
+if which pycompile >/dev/null 2>&1; then
+	pycompile -p system-config-samba-focal /usr/share/system-config-samba
+fi
+
+# End automatically added section
+
+##############################################################
+
+#bin/bash
+
+# hasClientMax=$(grep "client max protocol" /etc/samba/smb.conf)
+# if [ "$hasClientMax" == "" ]; then
+#   sed -i "s/\[global\]/\[global\]\n\nclient max protocol = NT1/g" /etc/samba/smb.conf
+# fi
+
+# # Automatically added by dhpython:
+# if [ -f "$(which pycompile)" ]; then
+#   pycompile -p system-config-samba-focal /usr/share/system-config-samba
+# fi
+# # End automatically added section

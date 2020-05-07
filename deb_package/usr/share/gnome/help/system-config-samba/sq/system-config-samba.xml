@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % DISTRO_SPECIFICS SYSTEM "distro-specifics.ent">
+<!ENTITY DISTRO_MAINMENU '<guimenu>the main menu on the panel (the menu with the "f" icon)</guimenu>'>
+<!ENTITY % SYSTEM_CONFIG_SAMBA_DISTRO_SPECIFICS SYSTEM "system-config-samba-distro-specifics.ent">
+<!ENTITY SYSTEM_CONFIG_SAMBA_TOOL "Samba Server Configuration Tool">
+<!ENTITY SYSTEM_CONFIG_SAMBA_INVOCATION '
+    <indexterm significance="normal">
+        <primary><command>system-config-samba</command>
+        </primary>
+        <see>&SYSTEM_CONFIG_SAMBA_TOOL;</see>
+    </indexterm>
+
+    <para>
+        You must be running the <application>X</application> Window System and have root privileges to use the &SYSTEM_CONFIG_SAMBA_TOOL;. To start the application on the desktop, go to <menuchoice>&DISTRO_MAINMENU;<guisubmenu>System</guisubmenu><guisubmenu>Administration</guisubmenu><guimenuitem>Samba</guimenuitem></menuchoice>.
+    </para>
+'>
+<!ENTITY SYSTEM_CONFIG_SAMBA_ABSTRACT SYSTEM "system-config-samba-abstract.xml">
+<!ENTITY SYSTEM_CONFIG_SAMBA_CONTENT SYSTEM "system-config-samba-content.xml">
+]>
+<article lang="sq"><title>SAMBA Server Configuration</title><articleinfo><revhistory><revision><revnumber>1.0</revnumber><date>2008-01-21</date></revision><revision><revnumber>1.0.1</revnumber><date>2008-03-12</date></revision></revhistory><abstract role="description"><para>
+    The <application>Samba Server Configuration Tool</application> is used to configure a Samba Server with which you can share files and/or printers with other computers.
+</para>
+</abstract><authorgroup><corpauthor role="maintainer">
+                <trademark class="registered">Red Hat</trademark>, Inc.
+            </corpauthor></authorgroup></articleinfo>    <para>
+    The <application>Samba Server Configuration Tool</application> is used to configure a Samba Server with which you can share files and/or printers with other computers.
+</para>
+
+
+    <indexterm significance="normal"><primary><command>system-config-samba</command>
+        </primary><see>Samba Server Configuration Tool</see></indexterm><para>
+        You must be running the <application>X</application> Window System and have root privileges to use the Samba Server Configuration Tool. To start the application on the desktop, go to <menuchoice><guimenu>the main menu on the panel (the menu with the "f" icon)</guimenu><guisubmenu>System</guisubmenu><guisubmenu>Administration</guisubmenu><guimenuitem>Samba</guimenuitem></menuchoice>.
+    </para>
+
+
+	<para>
+		The <application>Samba Server Configuration Tool</application> is a graphical interface for managing Samba shares, users, and basic server settings. It modifies the configuration files in the <filename>/etc/samba/</filename> directory. Any changes to these files not made using the application are preserved.
+	</para>
+	<para>
+        To use this application, you must be running the X Window System and have root privileges. To start the <application>Samba Server Configuration Tool</application> from the desktop, go to <menuchoice><guimenu>the main menu on the panel (the menu with the "f" icon)</guimenu><guisubmenu>System</guisubmenu><guisubmenu>Administration</guisubmenu><guimenuitem>Samba</guimenuitem></menuchoice> or type the command <command>system-config-samba</command> at a shell prompt (for example, in an XTerm or a GNOME terminal).
+	</para>
+	<figure float="0" id="fig-s-c-samba"><title><application>Samba Server Configuration Tool</application></title><mediaobject><imageobject><imagedata fileref="images/system-config-samba.png" format="PNG"/></imageobject><textobject><para>
+					<application>Samba Server Configuration Tool</application>
+				</para></textobject></mediaobject></figure>
+	<note><title>Note</title><para>
+			The <application>Samba Server Configuration Tool</application> does not display shared printers or the default stanza that allows users to view their own home directories on the Samba server.
+		</para></note>
+	<section id="s3-samba-gui-server-settings"><title>Configuring Server Settings</title><indexterm significance="normal"><primary>Samba</primary><secondary>graphical configuration</secondary><tertiary>configuring server settings</tertiary></indexterm><para>
+            The first step in configuring a Samba server is to configure the basic settings for the server and a few security options. After starting the application, select <menuchoice><guimenu>Preferences</guimenu><guimenuitem>Server Settings</guimenuitem></menuchoice> from the pulldown menu. The <guilabel>Basic</guilabel> tab is displayed as shown in <xref linkend="fig-samba-basic"/>.
+		</para><figure float="0" id="fig-samba-basic"><title>Configuring Basic Server Settings</title><mediaobject><imageobject><imagedata fileref="images/system-config-samba-server-settings-basic.png" format="PNG"/></imageobject><textobject><para>
+						Configuring Basic Server Settings
+					</para></textobject></mediaobject></figure><para>
+			On the <guilabel>Basic</guilabel> tab, specify which workgroup the computer should be in as well as a brief description of the computer. They correspond to the <command>workgroup</command> and <command>server string</command> options in <filename>smb.conf</filename>.
+		</para><figure float="0" id="fig-samba-security"><title>Configuring Security Server Settings</title><mediaobject><imageobject><imagedata fileref="images/system-config-samba-server-settings-security.png" format="PNG"/></imageobject><textobject><para>
+						Configuring Security Server Settings
+					</para></textobject></mediaobject></figure><para>
+			The <guilabel>Security</guilabel> tab contains the following options:
+		</para><itemizedlist><listitem><para>
+					<guilabel>Authentication Mode</guilabel> — This corresponds to the <command>security</command> option. Select one of the following types of authentication.
+				</para><itemizedlist><listitem><para>
+							<guilabel>ADS</guilabel> — The Samba server acts as a domain member in an Active Directory Domain (ADS) realm. For this option, Kerberos must be installed and configured on the server, and Samba must become a member of the ADS realm using the <command>net</command> utility, which is part of the <filename>samba-client</filename> package. Refer to the <command>net</command> man page for details. This option does not configure Samba to be an ADS Controller. Specify the realm of the Kerberos server in the <guilabel>Kerberos Realm</guilabel> field.
+						</para><note><title>Note</title><para>
+								The <guilabel>Kerberos Realm</guilabel> field must be supplied in all uppercase letters, such as <command>EXAMPLE.COM</command>.
+							</para><para>
+								Using a Samba server as a domain member in an ADS realm assumes proper configuration of Kerberos, including the <filename>/etc/krb5.conf</filename> file.
+							</para></note></listitem><listitem><para>
+							<guilabel>Domain</guilabel> — The Samba server relies on a Windows NT Primary or Backup Domain Controller to verify the user. The server passes the username and password to the Controller and waits for it to return. Specify the NetBIOS name of the Primary or Backup Domain Controller in the <guilabel>Authentication Server</guilabel> field.
+						</para><para>
+							The <guilabel>Encrypted Passwords</guilabel> option must be set to <guilabel>Yes</guilabel> if this is selected.
+						</para></listitem><listitem><para>
+							<guilabel>Server</guilabel> — The Samba server tries to verify the username and password combination by passing them to another Samba server. If it can not, the server tries to verify using the user authentication mode. Specify the NetBIOS name of the other Samba server in the <guilabel>Authentication Server</guilabel> field.
+						</para></listitem><listitem><para>
+							<guilabel>Share</guilabel> — Samba users do not have to enter a username and password combination on a per Samba server basis. They are not prompted for a username and password until they try to connect to a specific shared directory from a Samba server.
+						</para></listitem><listitem><para>
+							<guilabel>User</guilabel> — (Default) Samba users must provide a valid username and password on a per Samba server basis. Select this option if you want the <guilabel>Windows Username</guilabel> option to work. Refer to <xref linkend="s3-samba-gui-users"/> for details.
+						</para></listitem></itemizedlist></listitem><listitem><para>
+					<guilabel>Encrypt Passwords</guilabel> — This option must be enabled if the clients are connecting from a system with Windows 98, Windows NT 4.0 with Service Pack 3, or other more recent versions of Microsoft Windows. The passwords are transfered between the server and the client in an encrypted format instead of as a plain-text word that can be intercepted. This corresponds to the <command>encrypted passwords</command> option.
+				</para></listitem><listitem><para>
+					<guilabel>Guest Account</guilabel> — When users or guest users log into a Samba server, they must be mapped to a valid user on the server. Select one of the existing usernames on the system to be the guest Samba account. When guests log in to the Samba server, they have the same privileges as this user. This corresponds to the <command>guest account</command> option.
+				</para></listitem></itemizedlist><para>
+			After clicking <guibutton>OK</guibutton>, the changes are written to the configuration file and the daemon is restarted; thus, the changes take effect immediately.
+		</para></section>
+	
+	<section id="s3-samba-gui-users"><title>Managing Samba Users</title><indexterm significance="normal"><primary>Samba</primary><secondary>graphical configuration</secondary><tertiary>managing Samba users</tertiary></indexterm><para>
+			The <application>Samba Server Configuration Tool</application> requires that an existing user account be active on the system acting as the Samba server before a Samba user can be added. The Samba user is associated with the existing user account.
+		</para><figure float="0" id="fig-samba-users"><title>Managing Samba Users</title><mediaobject><imageobject><imagedata fileref="images/system-config-samba-users.png" format="PNG"/></imageobject><textobject><para>
+						Managing Samba Users
+					</para></textobject></mediaobject></figure><para>
+            To add a Samba user, select <menuchoice><guimenu>Preferences</guimenu><guimenuitem>Samba Users</guimenuitem></menuchoice> from the pulldown menu, and click the <guibutton>Add User</guibutton> button. In the <guilabel>Create New Samba User</guilabel> window select a <guilabel>Unix Username</guilabel> from the list of existing users on the local system.
+		</para><para>
+			If the user has a different username on a Windows machine and needs to log into the Samba server from the Windows machine, specify that Windows username in the <guilabel>Windows Username</guilabel> field. The <guilabel>Authentication Mode</guilabel> on the <guilabel>Security</guilabel> tab of the <guilabel>Server Settings</guilabel> preferences must be set to <guilabel>User</guilabel> for this option to work.
+		</para><para>
+			Also, configure a <guilabel>Samba Password</guilabel> for the Samba User and confirm it by typing it again. Even if you opt to use encrypted passwords for Samba, it is recommended that the Samba passwords for all users are different from their system passwords.
+		</para><para>
+			To edit an existing user, select the user from the list, and click <guibutton>Edit User</guibutton>. To delete an existing Samba user, select the user, and click the <guibutton>Delete User</guibutton> button. Deleting a Samba user does not delete the associated system user account.
+		</para><para>
+			The users are modified immediately after clicking the <guibutton>OK</guibutton> button.
+		</para></section>
+	
+	<section id="s3-samba-gui-add-share"><title>Adding a Share</title><indexterm significance="normal"><primary>Samba</primary><secondary>graphical configuration</secondary><tertiary>adding a share</tertiary></indexterm><para>
+			To create a Samba share, click the <guibutton>Add</guibutton> button from the main Samba configuration window.
+		</para><figure float="0" id="fig-samba-add-share"><title>Adding a Share</title><mediaobject><imageobject><imagedata fileref="images/system-config-samba-create-share.png" format="PNG"/></imageobject><textobject><para>
+						Adding a Samba Share
+					</para></textobject></mediaobject></figure><para>
+			The <guilabel>Basic</guilabel> tab configures the following options:
+		</para><itemizedlist><listitem><para>
+					<guilabel>Directory</guilabel> — The directory to share via Samba. The directory must exist before it can be entered here.
+				</para></listitem><listitem><para>
+					<guilabel>Share name</guilabel> — The actual name of the share that is seen from remote machines. By default, it is the same value as <guilabel>Directory</guilabel>, but can be configured.
+				</para></listitem><listitem><para>
+					<guilabel>Descriptions</guilabel> — A brief description of the share.
+				</para></listitem><listitem><para>
+					<guilabel>Writable</guilabel> — Enables users to read and write to the shared directory
+				</para></listitem><listitem><para>
+					<guilabel>Visible</guilabel> — Grants read-only rights to users for the shared directory.
+				</para></listitem></itemizedlist><para>
+			On the <guilabel>Access</guilabel> tab, select whether to allow only specified users to access the share or whether to allow all Samba users to access the share. If you select to allow access to specific users, select the users from the list of available Samba users.
+		</para><para>
+			The share is added immediately after clicking <guibutton>OK</guibutton>.
+		</para></section>
+</article>

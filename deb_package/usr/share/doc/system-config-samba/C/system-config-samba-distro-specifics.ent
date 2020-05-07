@@ -1,0 +1,12 @@
+<!ENTITY SYSTEM_CONFIG_SAMBA_TOOL "Samba Server Configuration Tool">
+<!ENTITY SYSTEM_CONFIG_SAMBA_INVOCATION '
+    <indexterm significance="normal">
+        <primary><command>system-config-samba</command>
+        </primary>
+        <see>&SYSTEM_CONFIG_SAMBA_TOOL;</see>
+    </indexterm>
+
+    <para>
+        You must be running the <application>X</application> Window System and have root privileges to use the &SYSTEM_CONFIG_SAMBA_TOOL;. To start the application on the desktop, go to <menuchoice>&DISTRO_MAINMENU;<guisubmenu>System</guisubmenu><guisubmenu>Administration</guisubmenu><guimenuitem>Samba</guimenuitem></menuchoice>.
+    </para>
+'>

@@ -1,0 +1,42 @@
+<?xml version='1.0'?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+
+<!ENTITY % DISTRO_SPECIFICS SYSTEM "distro-specifics.ent">
+%DISTRO_SPECIFICS;
+
+<!ENTITY % SYSTEM_CONFIG_SAMBA_DISTRO_SPECIFICS SYSTEM "system-config-samba-distro-specifics.ent">
+%SYSTEM_CONFIG_SAMBA_DISTRO_SPECIFICS;
+
+<!ENTITY SYSTEM_CONFIG_SAMBA_ABSTRACT SYSTEM "system-config-samba-abstract.xml">
+<!ENTITY SYSTEM_CONFIG_SAMBA_CONTENT SYSTEM "system-config-samba-content.xml">
+]>
+
+<article>
+    <title>SAMBA Server Configuration</title>
+
+    <articleinfo>
+        <revhistory>
+            <revision>
+                <revnumber>1.0</revnumber>
+                <date>2008-01-21</date>
+            </revision>
+            <revision>
+                <revnumber>1.0.1</revnumber>
+                <date>2008-03-12</date>
+            </revision>
+        </revhistory>
+
+        <abstract role="description">
+            &SYSTEM_CONFIG_SAMBA_ABSTRACT;
+        </abstract>
+
+        <authorgroup>
+            <corpauthor role="maintainer">
+                <trademark class="registered">Red Hat</trademark>, Inc.
+            </corpauthor>
+        </authorgroup>
+    </articleinfo>
+
+    &SYSTEM_CONFIG_SAMBA_CONTENT;
+
+</article>

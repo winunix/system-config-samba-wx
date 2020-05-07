@@ -1,0 +1,14 @@
+Package: system-config-samba-focal
+Version: 1.2.63-0ubuntu6
+Architecture: all
+Maintainer: Ubuntu MOTU Developers <ubuntu-motu@lists.ubuntu.com>
+Installed-Size: 7292
+Depends: python, python:any (>= 2.7.5-5~), samba, python-libuser, python-glade2
+Section: admin
+Priority: optional
+Provides: system-config-samba (= 1.2.63-0ubuntu6)
+Conflicts: system-config-samba (= 1.2.63-0ubuntu6)
+Replaces: system-config-samba (= 1.2.63-0ubuntu6)
+Description: GUI for managing samba shares and users
+ system-config-samba is a graphical user interface for creating,
+ modifying, and deleting samba shares and users.
