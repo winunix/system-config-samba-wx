@@ -3,9 +3,9 @@ set -e
 
 # Automatically added by dhpython:
 if which pyclean >/dev/null 2>&1; then
-	pyclean -p system-config-samba-focal 
+	pyclean -p system-config-samba-wx 
 else
-	dpkg -L system-config-samba-focal | grep \.py$ | while read file
+	dpkg -L system-config-samba-wx | grep \.py$ | while read file
 	do
 		rm -f "${file}"[co] >/dev/null
   	done
