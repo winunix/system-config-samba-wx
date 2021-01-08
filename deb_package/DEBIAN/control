@@ -1,9 +1,9 @@
-Package: system-config-samba-focal
+Package: system-config-samba-wx
 Version: 1.2.63-0ubuntu6
 Architecture: all
 Maintainer: Ubuntu MOTU Developers <ubuntu-motu@lists.ubuntu.com>
 Installed-Size: 7292
-Depends: python, python:any (>= 2.7.5-5~), samba, python-libuser, python-glade2
+Depends: python | python-is-python2, samba, python-libuser, python-glade2
 Section: admin
 Priority: optional
 Provides: system-config-samba (= 1.2.63-0ubuntu6)
