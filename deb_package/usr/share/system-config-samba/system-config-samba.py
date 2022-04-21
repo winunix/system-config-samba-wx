@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python2
 
 ## system-config-samba.py - Contains the startup script for system-config-samba
 ## Copyright (C) 2002 - 2004 Red Hat, Inc.
